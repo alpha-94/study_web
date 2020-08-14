@@ -1,0 +1,67 @@
+<!-- 
+
+* 클래스 선택자
+
+		- 특정한 클래스를 가지고 있는 태그를 선택할 때 사용하는 선택자.
+		- 웹페이지를 개발할 때 가장 많이 사용하는 선택자.
+		- 여러개의 클래스 선택자 사용.
+			.class 속성은 공백으로 구분해서 여러클래스를 사용할 수 있다.
+		- id 속성은 웹헤이지 내부에서 중복되지 않으므로 상관없지만 class 속성은 중복될 수 있다.
+		- class 속성은 서로 다른 태그에 적용된다면 태그선택자와 클래스선택자를 함께 사용해서
+		   더 정확하게 태그를 선택할 수 있다.
+		   
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+	.select {color : blue;}
+	.item {background: silver;}
+	
+	/* 태그 선택자 + 클래스 선택자 */
+	li.select { background: skyblue;}
+
+</style>
+
+</head>
+<body>
+
+	<h1>웹 프로그래밍</h1>
+	
+	<ul>
+		<li class="select">HTML</li>
+		<li class="select">CSS</li>
+		<li>JAVAScript</li>
+		<li>jQuery</li>
+	</ul>
+	
+	<hr>
+	
+	<!-- class ="X (공백) Y (공백) Z" 이런식으로 하면 X 의 클래스 Y 의 클래스 Z 의 클래스 중복으로 사용 가능 -->	
+	<h1 class="item select">화면 구현</h1>
+	
+	<hr>
+	
+	<h1 class="select">웹 프로그래밍</h1>
+	
+	<ul>
+		<li class="select">HTML</li>
+		<li class="select">CSS</li>
+		<li>JAVAScript</li>
+		<li>jQuery</li>
+	</ul>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

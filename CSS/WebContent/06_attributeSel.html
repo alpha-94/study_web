@@ -1,0 +1,30 @@
+﻿<!--  
+	* 속성선택자
+		- 특정 속성을 가진 HTML 태그를 선택할 수 있다.
+		- 다른 선택자와 함께 사용하는 선택자.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>속성선택자</title>
+
+<style type="text/css">
+	input[type=text] {background: skyblue;}
+	input[type=password] {background: light purple;}
+</style>
+
+</head>
+<body>
+
+	<form>
+		<input type="text" /><br /> 
+		<input type="password" /><br /> 
+		
+		<!-- 주의 input 디폴트 :: text 하지만 디폴트라고 할 지라도 스타일은 적용되지 않는다-->
+		<input><br>
+	</form>
+
+</body>
+</html>

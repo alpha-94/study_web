@@ -1,0 +1,34 @@
+﻿<!-- 
+	* 동위선택자
+		: 동위 관계에서 뒤에 위치한 태그를 선택할 때 사용하는 선택자.
+ -->
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>동위선택자</title>
+
+<style type="text/css">
+	/* 인접 선택자
+			- h1 태그의 바로 뒤에 위치하는 h2 태그의 color 속성에 Lime 키워드를 적용하고 싶을 때  
+			- (적용이되는 기준이되는 태그) (하나만 선택하고 싶을때) + (인접 태그)*/
+	h1 + h2 {color : Lime ; }
+	
+	/* 형제 선택자 
+			-  h1 태그의 뒤에 위치하는 h2 태그의 background 속성에 DodgerBlue 키워드를 적용하고 싶을때
+			- (적용이되는 기준이되는 태그) (여러개 선택하고 싶을때) ~ (형제태그)*/
+	h1 ~ h2 {background : DodgerBlue ;}
+	
+</style>
+
+
+</head>
+<body>
+	<h1>Header - 1</h1>
+	<h2>Header - 2</h2>
+	<h2>Header - 2</h2>
+	<h2>Header - 2</h2>
+	<h3>Header - 3</h3>
+</body>
+</html>

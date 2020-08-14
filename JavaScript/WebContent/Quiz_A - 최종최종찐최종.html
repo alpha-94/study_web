@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>간단한 회원 정보 입력 양식</title>
+<style>
+
+	#pass_value
+	{background: #e6fff2 ;
+	 border: none ;
+	 text-align: center;
+	 }
+	table, td{
+		background-color:#f2f2f2;
+	}
+	
+	th{
+		background-color: #FFA07A ;
+	}
+	
+	table{
+		margin:0 auto;
+		border-collapse:collapse;
+		border-color:	#483D8B ;
+	}
+	
+	td{
+		padding:5px;
+		height:30px;
+	}
+</style>
+<script>
+		window.onload = function(){	
+	
+			//항목 체크 버튼 
+			document.getElementById('pass').onclick=function(){
+				var pw = document.getElementById('pw').value;
+				var pwchk = document.getElementById('pw_check').value;
+				
+				//비밀번호 또는 비밀번호확인 칸을 넣지 않았을 경우
+				if(pw==''){
+					document.getElementById('pass_value').value = '비밀번호 항목을 채워 넣어주세요..!';
+					document.getElementById('pass_value').style.color = 'red';
+					return false;
+				}
+				else if(pwchk==''){
+					document.getElementById('pass_value').value = '비밀번호 확인 항목을 채워 넣어주세요..!';
+					document.getElementById('pass_value').style.color = 'red';
+					return false;
+				}
+				
+				//비밀번호 확인 체크
+				if(pw==pwchk){
+					document.getElementById('pass_value').value = '일치';
+					document.getElementById('pass_value').style.color = 'blue';
+				}else{
+					document.getElementById('pass_value').value = '불일치';
+					document.getElementById('pass_value').style.color = 'red';
+				}	
+				return false;
+		}
+		
+		document.getElementById('myForm').onsubmit=function(){
+			var suboutput ='';
+			var output = '';
+			var strGender = '';
+			var strHobby = '';
+			
+			var id = document.getElementById('id').value;
+			var name = document.getElementById('name').value;
+			var pw = document.getElementById('pw').value;
+			var pwchk = document.getElementById('pw_check').value;
+			var t1 = document.getElementById('t1').value;
+			var t2 = document.getElementById('t2').value;
+			var t3 = document.getElementById('t3').value;
+			var job = document.getElementById('job').value;
+			var gender = document.getElementsByName('gender');
+			var hobby = document.getElementsByName('hobby');
+			var memo = document.getElementById('memo').value;
+			
+			
+			for(var i=0; i<gender.length;i++){
+				if(gender[i].checked == true){
+					if(gender[i].value == "M"){
+						strGender = "남";
+					}else{
+						strGender = "여";
+					}
+				}
+			}
+			
+			
+			
+			for(var i=0; i < hobby.length; i++){
+				if(hobby[i].checked == true){
+					if(hobby[i].value == "1"){
+						strHobby += '바둑  ';
+					}else if(hobby[i].value == "2"){
+						strHobby += '게임  ';
+					}else if(hobby[i].value == "3"){
+						strHobby += '낚시  ';
+					}else if(hobby[i].value == "4"){
+						strHobby += '독서  ';
+					}
+				}
+			}
+			output += '========회원정보========\n';
+			output += '아이디 : '+id+'\n';
+			output += '이름 : '+name+'\n';
+			output += '비밀번호 : '+pw+'\n';
+			output += '전화번호 : '+t1+'-'+t2+'-'+t3+'\n';
+			output += '직업 : '+job+'\n';
+			output += '성별 : '+strGender+'\n';
+			output += '취미 : '+strHobby+'\n';
+			output += '자기 소개하는 글 : '+memo+'\n';
+			
+			
+			//항목 체크
+			if(id==''){
+				suboutput = '아이디 항목이 빠졌습니다. \n';
+				alert(suboutput);
+				return false;			
+			}
+			else if(name==''){
+				suboutput = '이름 항목이 빠졌습니다. \n';
+				alert(suboutput);
+				return false;				
+			}
+			else if(pw==''){
+				suboutput = '비밀번호 항목이 빠졌습니다. \n';
+				alert(suboutput);
+				return false;				
+			}
+			else if(pwchk==''){
+				suboutput = '비밀번호 확인 항목이 빠졌습니다. \n';
+				alert(suboutput);
+				return false;
+			}
+			else if(t1=='' | t2=='' | t3==''){
+				suboutput = '전화번호가 빠졌습니다. \n';
+				alert(suboutput);
+				return false;
+			}
+			
+			// 일치 불일치 체크
+			if(pw==pwchk){
+				alert('비밀번호 일치합니다.');
+			}else{
+				alert('비밀번호 불일치합니다.');
+				return false;
+			}
+			
+			alert(output);
+		};
+		
+	};
+	
+</script>
+</head>
+<body>
+	<form id="myForm" >
+		<table border="1">
+			<caption align="center" font-size="15pt">간단한 회원 정보 입력 양식</caption>
+			
+			<tr>
+				<th>아이디</th>
+				<td>
+					<input type="text" id="id" size="30">
+				</td>
+			</tr>
+			<tr>
+				<th>이름</th>
+				<td>
+					<input type="text" id="name" size="30">
+				</td>
+			</tr>
+			<tr>
+				<th>암호</th>
+				<td>
+					<input type="password" id="pw" size="30">
+				</td>
+			</tr>
+			<tr>
+				<th>비밀번호 확인 </th>
+				<td>
+					<input type="password" id="pw_check" size="30">
+					<button id="pass" >비밀번호 확인</button>
+					<input type="text" id="pass_value" value="비밀번호 체크" size="26" disabled="disabled">
+				</td>
+				
+			</tr>
+			<tr>
+				<th>전화번호</th>
+				<td>
+					<input type="text" id="t1" size="5"> -
+					<input type="text" id="t2" size="6"> -
+					<input type="text" id="t3" size="6" >
+				</td>
+			</tr>
+			<tr>
+				<th>직업</th>
+				<td>
+					<select id="job" name="job">
+						<option value="학생" SELECTED>학생</option>
+						<option value="직장">직장</option>
+						<option value="주부">주부</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th>성별</th>
+				<td>
+					<input type="radio" name="gender" value="M" checked>남
+					<input type="radio" name="gender" value="F">여
+				</td>
+			</tr>
+			<tr>
+				<th>취미</th>
+				<td>
+					<input type="checkbox" name="hobby" value="1">바둑 
+					<input type="checkbox" name="hobby" value="2">게임 
+					<input type="checkbox" name="hobby" value="3">낚시 
+					<input type="checkbox" name="hobby" value="4">독서
+				</td>
+			</tr>
+			<tr>
+				<th>자기 소개하는 글</th>
+				<td>
+					<textarea cols="60" rows="4" id="memo" name="memo" placeholder="자기를 소개하는 글을 쓰세요."></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<input type="submit" value="등록하기"> 
+					<input type="reset"   value="취소하기">
+				</td>
+			</tr>
+		</table>
+	</form>
+<body>
+</html>

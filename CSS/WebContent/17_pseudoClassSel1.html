@@ -1,0 +1,60 @@
+﻿<!-- 
+	* 일반구조선택자
+		- CSS3부터 지원하는 선택자.
+		- 일반적으로 자손선택자와 병행해서 많이 사용.
+		- 종 류
+			. :first-child 
+				→ 첫번째에 위치하는 자손을 선택(CSS2.1 지원)
+			. :last-child
+				→ 마지막에 위치하는 자손을 선택.
+			. :nth-child(n)
+				→ 앞에서 n번째 있는 자손을 선택.
+			. :nth-last-child(n)
+				→ 뒤에서 n번째 있는 자손을 선택.
+ -->
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>일반구조선택자</title>
+
+<style type="text/css">
+	ul {
+		overflow: hidden ;
+}
+	li{
+		float: left ;
+		list-style: none ;
+		padding: 15px ;
+}
+	li:nth-child(2n) {
+		background: BlueViolet ;
+}
+	li:nth-child(2n-1) {
+		background: SandyBrown ;
+}
+	li:first-child {
+		border-radius: 10px  0 0 10px;
+		/* 1사분면(왼쪽 상단) / 2사분면(오른쪽 상단) / 3사분면(오른쪽 하단) /4사분면(왼쪽 하단) */
+}
+	li:last-child {
+		border-radius: 0 10px 10px 0 ;
+}
+
+</style>
+
+</head>
+<body>
+
+	<ul>
+		<li>First</li>
+		<li>Second</li>
+		<li>Third</li>
+		<li>Fourth</li>
+		<li>Fifth</li>
+		<li>Sixth</li>
+	</ul>
+
+</body>
+</html>

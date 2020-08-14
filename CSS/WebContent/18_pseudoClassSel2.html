@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>일반구조선택자</title>
+
+<style type="text/css">
+	
+	/* li > a:first-child {
+	color: DarkRed ;
+} */ /* 어차피 li 밑에 a 가 하나밖에 없음! */
+	li:first-child > a{
+	color: DarkSlateBlue ;
+} /* 첫번째 li 를 선택하고 그것의 자식인 a 를 지정 */
+
+</style>
+
+</head>
+<body>
+  <ul>
+      <li><a href="#">Condrasa</a></li>
+      <li><a href="#">Condrasa</a></li>
+      <li><a href="#">Condrasa</a></li>
+      <li><a href="#">Condrasa</a></li>
+      <li><a href="#">Condrasa</a></li>
+      <li><a href="#">Condrasa</a></li>
+   </ul>
+</body>
+</html>
